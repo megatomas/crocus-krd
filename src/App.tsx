@@ -432,21 +432,74 @@ function About() {
   );
 }
 
+// ===== GALLERY =====
+function Gallery() {
+  const photos = [
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_2.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_3.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_4.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_5.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_6.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_7.webp',
+    'https://crocus-krd.ru/wp-content/uploads/2025/12/1_8.webp',
+  ];
+
+  return (
+    <Section className="py-20 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div variants={fadeInUp} className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 bg-green-100 text-green-700 text-sm font-medium rounded-full mb-4">
+            Галерея
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Наш садовый центр
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Фотографии из нашего питомника — убедитесь в качестве и ассортименте
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+          {photos.map((photo, i) => (
+            <motion.div
+              key={i}
+              variants={scaleIn}
+              whileHover={{ scale: 1.03 }}
+              className={`relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 ${
+                i === 0 || i === 5 ? 'md:col-span-2 md:row-span-2 aspect-square' : 'aspect-square'
+              }`}
+            >
+              <img
+                src={photo}
+                alt={`Фото садового центра Крокус ${i + 1}`}
+                loading="lazy"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 // ===== PRODUCTS =====
 function Products() {
   const products = [
-    { name: 'Бересклет японский Кэти', price: '2 000', img: '🌿' },
-    { name: 'Сосна мелкоцветковая Негиши', price: '9 000', img: '🌲' },
-    { name: 'Падуб остролистный Аргентеа', price: '7 500', img: '🍃' },
-    { name: 'Тис ягодный Фастигиата', price: '1 500', img: '🌳' },
-    { name: 'Фотиния Фразера Литл Ред Робин', price: '1 800', img: '🌺' },
-    { name: 'Сосна Веймутова Пендула', price: '41 000', img: '🌲' },
-    { name: 'Ель колючая Ольденбург', price: '75 000', img: '🎄' },
-    { name: 'Сосна черная Мари Брегон', price: '12 500', img: '🌲' },
-    { name: 'Леукотоэ микс', price: '2 100', img: '🌸' },
-    { name: 'Смолосемянник Тобира Нана', price: '2 000', img: '🌿' },
-    { name: 'Плющ микс', price: '450', img: '🍀' },
-    { name: 'Тис ягодный спираль', price: '70 000', img: '🌳' },
+    { name: 'Бересклет японский Кэти', price: '2 000', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/beresklet-yaponskij-keti.webp' },
+    { name: 'Сосна мелкоцветковая Негиши', price: '9 000', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/sosna-melkocvetkovaya-negishi.webp' },
+    { name: 'Падуб остролистный Аргентеа Маргината', price: '7 500', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/padub-ostrolistnyj-argentea-marginata.webp' },
+    { name: 'Тис ягодный Фастигиата', price: '1 500', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/tis-yagodnyj-fastigiata.webp' },
+    { name: 'Фотиния Фразера Литл Ред Робин', price: '1 800', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/fotiniya-frazera-litl-red-robin.webp' },
+    { name: 'Сосна Веймутова Пендула', price: '41 000', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/sosna-vejmutova-pendula.webp' },
+    { name: 'Ель колючая Ольденбург', price: '75 000', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/el-kolyuchaya-oldenburg.webp' },
+    { name: 'Сосна черная Мари Брегон', price: '12 500', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/sosna-chernaya-mari-bregon.webp' },
+    { name: 'Леукотоэ микс', price: '2 100', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/leukotoe-miks.webp' },
+    { name: 'Смолосемянник Тобира Нана', price: '2 000', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/smolosemyannik-tobira-nana.webp' },
+    { name: 'Плющ микс', price: '450', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/plyushh-miks.webp' },
+    { name: 'Тис ягодный спираль', price: '70 000', img: 'https://crocus-krd.ru/wp-content/uploads/2025/12/tis-yagodnyj-spiral.webp' },
   ];
 
   return (
@@ -472,8 +525,13 @@ function Products() {
               whileHover={{ y: -4 }}
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="aspect-square bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center text-5xl lg:text-6xl group-hover:scale-110 transition-transform duration-500">
-                {product.img}
+              <div className="aspect-square bg-gradient-to-br from-green-50 to-emerald-50 overflow-hidden">
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <div className="p-4">
                 <h3 className="font-medium text-gray-900 text-sm lg:text-base mb-2 line-clamp-2 group-hover:text-green-700 transition-colors">
@@ -509,22 +567,22 @@ function Blog() {
     {
       title: 'Какие растения выбрать для живой изгороди в Краснодаре',
       date: '09.11.2025',
-      emoji: '🌿',
+      img: 'https://crocus-krd.ru/wp-content/uploads/2025/11/rasteniya-dlya-zhivoj-izgorodi-krasnodar.webp',
     },
     {
       title: 'Когда и как правильно сажать растения в южном климате',
       date: '09.11.2025',
-      emoji: '📅',
+      img: 'https://crocus-krd.ru/wp-content/uploads/2025/11/kalendar-posadok-dlya-krasnodara.webp',
     },
     {
       title: 'Как выбрать саженцы деревьев и кустарников для южного климата',
       date: '08.11.2025',
-      emoji: '🌱',
+      img: 'https://crocus-krd.ru/wp-content/uploads/2025/11/kak-vybrat-sazhency-derevev-i-kustarnikov.webp',
     },
     {
       title: 'ТОП-10 растений, которые идеально переносят жару и солнце',
       date: '07.11.2025',
-      emoji: '☀️',
+      img: 'https://crocus-krd.ru/wp-content/uploads/2025/11/top10.webp',
     },
   ];
 
@@ -552,17 +610,26 @@ function Blog() {
               rel="noopener noreferrer"
               variants={fadeInUp}
               whileHover={{ y: -6 }}
-              className="group bg-gradient-to-br from-gray-50 to-green-50/30 rounded-2xl p-6 border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300"
+              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300"
             >
-              <div className="text-4xl mb-4">{article.emoji}</div>
-              <span className="text-xs text-gray-500 font-medium">{article.date}</span>
-              <h3 className="font-semibold text-gray-900 mt-2 mb-3 group-hover:text-green-700 transition-colors line-clamp-3">
-                {article.title}
-              </h3>
-              <span className="inline-flex items-center gap-1 text-sm text-green-600 font-medium">
-                Читать
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </span>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={article.img}
+                  alt={article.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <span className="text-xs text-gray-500 font-medium">{article.date}</span>
+                <h3 className="font-semibold text-gray-900 mt-2 mb-3 group-hover:text-green-700 transition-colors line-clamp-3">
+                  {article.title}
+                </h3>
+                <span className="inline-flex items-center gap-1 text-sm text-green-600 font-medium">
+                  Читать
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
             </motion.a>
           ))}
         </div>
@@ -1018,6 +1085,7 @@ export default function App() {
       <Hero />
       <Categories />
       <About />
+      <Gallery />
       <Products />
       <Blog />
       <FAQ />
