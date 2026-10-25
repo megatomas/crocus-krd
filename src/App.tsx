@@ -7,6 +7,19 @@ import {
   ExternalLink, Send, Heart
 } from 'lucide-react';
 
+// ===== CUSTOM ICONS =====
+const TelegramIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+);
+
+const MaxIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.8c3.976 0 7.2 3.224 7.2 7.2 0 3.976-3.224 7.2-7.2 7.2-3.976 0-7.2-3.224-7.2-7.2 0-3.976 3.224-7.2 7.2-7.2zm-3.6 4.8v4.8l3.6-2.4 3.6 2.4V9.6L12 12l-3.6-2.4z"/>
+  </svg>
+);
+
 // ===== ANIMATION VARIANTS =====
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -111,6 +124,24 @@ function Header() {
             >
               WhatsApp
             </a>
+            <a
+              href="https://t.me/crocus_krd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2.5 rounded-full transition-all duration-200 hover:shadow-lg ${isScrolled ? 'bg-blue-50 text-blue-600 hover:bg-blue-100' : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'}`}
+              title="Telegram"
+            >
+              <TelegramIcon className="w-5 h-5" />
+            </a>
+            <a
+              href="https://max.ru/crocus_krd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2.5 rounded-full transition-all duration-200 hover:shadow-lg ${isScrolled ? 'bg-purple-50 text-purple-600 hover:bg-purple-100' : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'}`}
+              title="Max"
+            >
+              <MaxIcon className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -151,10 +182,31 @@ function Header() {
                   href="https://wa.me/+79615044088"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-5 py-3 bg-green-600 text-white font-medium rounded-full"
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-green-600 text-white font-medium rounded-full"
                 >
+                  <MessageCircle className="w-4 h-4" />
                   Написать в WhatsApp
                 </a>
+                <div className="flex gap-3">
+                  <a
+                    href="https://t.me/crocus_krd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-600 transition-colors"
+                  >
+                    <TelegramIcon className="w-4 h-4" />
+                    Telegram
+                  </a>
+                  <a
+                    href="https://max.ru/crocus_krd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-purple-500 text-white font-medium rounded-full hover:bg-purple-600 transition-colors"
+                  >
+                    <MaxIcon className="w-4 h-4" />
+                    Max
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -948,22 +1000,40 @@ function Contacts() {
             </div>
 
             {/* Messengers */}
-            <div className="flex gap-3">
+            <div className="grid grid-cols-2 gap-3">
               <a
                 href="https://wa.me/+79615044088"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-2xl transition-all duration-200 hover:shadow-lg"
+                className="flex items-center justify-center gap-2 px-6 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-2xl transition-all duration-200 hover:shadow-lg"
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp
               </a>
               <a
                 href="tel:+79615044088"
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white font-semibold rounded-2xl transition-all duration-200 hover:shadow-lg"
+                className="flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white font-semibold rounded-2xl transition-all duration-200 hover:shadow-lg"
               >
                 <Phone className="w-5 h-5" />
                 Позвонить
+              </a>
+              <a
+                href="https://t.me/crocus_krd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-6 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-2xl transition-all duration-200 hover:shadow-lg"
+              >
+                <TelegramIcon className="w-5 h-5" />
+                Telegram
+              </a>
+              <a
+                href="https://max.ru/crocus_krd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-6 py-4 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-2xl transition-all duration-200 hover:shadow-lg"
+              >
+                <MaxIcon className="w-5 h-5" />
+                Max
               </a>
             </div>
           </motion.div>
@@ -1053,20 +1123,40 @@ function Footer() {
           <p className="text-gray-500 text-sm">
             © 2025 Садовый центр «Крокус». Все права защищены.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <a
               href="https://wa.me/+79615044088"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-800 hover:bg-green-600 flex items-center justify-center transition-colors"
+              title="WhatsApp"
             >
               <MessageCircle className="w-4 h-4" />
+            </a>
+            <a
+              href="https://t.me/crocus_krd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-500 flex items-center justify-center transition-colors"
+              title="Telegram"
+            >
+              <TelegramIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://max.ru/crocus_krd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-500 flex items-center justify-center transition-colors"
+              title="Max"
+            >
+              <MaxIcon className="w-4 h-4" />
             </a>
             <a
               href="https://yandex.ru/maps/org/krokus/75778321793/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-800 hover:bg-green-600 flex items-center justify-center transition-colors"
+              title="Яндекс Карты"
             >
               <MapPin className="w-4 h-4" />
             </a>
